@@ -1,0 +1,14 @@
+.cart-img {
+    width: 100px;
+    margin: 0 auto;
+}
+.cart-btn {
+    border: none;
+  outline: none;
+  background: linear-gradient(45deg, #ff6e4a, #fea45f);
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}

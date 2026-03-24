@@ -18,7 +18,31 @@
     padding: 25px;
     border-radius: 20px;
 }
-
+.flex-components {
+    display: flex;
+    gap: 50px;
+}
+.cart {
+    box-shadow: 0 0 10px rgb(201, 197, 197);
+    padding: 10px;
+    border-radius: 20px;
+    position: sticky;
+    top: 50%;
+    width: 30%;
+}
+.cart h2 {
+    text-align: center;
+}
+.food-btn {
+    border: none;
+  outline: none;
+  background: linear-gradient(45deg, #ff6e4a, #fea45f);
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
 @media screen and (max-width : 768px) {
     .grid-components {
         grid-template-columns: repeat(2, 1fr);
@@ -29,5 +53,14 @@
     .grid-components {
         grid-template-columns: repeat(1, 1fr);
         padding: 20px;
+    }
+    .flex-components  {
+        flex-direction: column-reverse;
+        padding: 20px;
+    }
+    .cart {
+        position: sticky;
+        top: 27%;
+        background-color: white;
     }
 }

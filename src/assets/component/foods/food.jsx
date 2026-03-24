@@ -1,30 +1,34 @@
-import { use } from 'react'
-import './food.css'
-const Foods = ({foodPromise}) => {
-    const {meals} = use(foodPromise)
+import { use } from 'react';
+import { useState } from 'react';
+import './food.css';
+import Cart from '../cart/cart';
+import { SingleFood } from './singlefood';
+
+const Foods = ({ foodPromise }) => {
+    const { meals } = use(foodPromise);
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (meal) => {
+        console.log(meal);
+        setCart([...cart, meal]);
+    }
+
     return (
         <section className='food-section'>
-            <h1 style={{
-                textAlign : "center",
-                marginBottom : "30px"
-            }}>All Foods</h1>
-            <div className='grid-components'>
-                {
-                meals.map(meal => (
-                <div key={meal.idMeal} className='fool-meals'>
-                    <img src={meal.strMealThumb} alt="" />
-                    <h2>{meal.strMeal}</h2>
-                    <p>{meal.strCategory}</p>
-                    <a href={meal.strYoutube} target="_blank" rel="noreferrer">
-                                ▶ Watch Recipe
-                            </a> <br />
-                    <a href= {meal.strSource}>Visit Sources Food</a>
-                    <p>{meal.strArea}</p>
+            <h1 style={{ textAlign: "center", marginBottom: "30px" }}>All Foods</h1>
+            <div className='flex-components'>
+                <div className='grid-components'>
+                    {meals.map(meal => (
+                        <SingleFood addToCart={addToCart} key={meal.idMeal} meal={meal} />
+                    ))}
                 </div>
-                ))
-            }
+                <div className='cart'>
+                    <h2>Cart</h2>
+                    <Cart cart={cart}></Cart>
+                </div>
             </div>
         </section>
-    )
-}
-export default Foods
+    );
+};
+
+export default Foods;
